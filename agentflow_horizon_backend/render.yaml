@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: agentflow-horizon-backend
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn server:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.0
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash-lite
+      - key: CORS_ORIGINS
+        value: https://agentflow-horizon.vercel.app
+    healthCheckPath: /api/health
+    autoDeploy: true

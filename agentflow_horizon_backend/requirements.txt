@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+chromadb
+google-generativeai
+google-adk
+python-dotenv
+beautifulsoup4
+requests
+pypdf2
+python-multipart
+sqlalchemy
