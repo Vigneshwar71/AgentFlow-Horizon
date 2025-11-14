@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from 'sonner';
+import MarkdownRenderer from '@/components/MarkdownRenderer';
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
@@ -71,37 +72,46 @@ const MultiAgentResearch = () => {
         <div className="space-y-6 fade-in" data-testid="research-results">
           <Card className="glass">
             <CardHeader>
-              <CardTitle>Final Answer</CardTitle>
+              <CardTitle className="text-2xl">📊 Research Report</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-gray-700 whitespace-pre-wrap">{result.final_answer}</p>
+              <MarkdownRenderer content={result.final_answer} />
             </CardContent>
           </Card>
 
           <Card className="glass">
             <CardHeader>
-              <CardTitle>Summary</CardTitle>
+              <CardTitle className="flex items-center gap-2">
+                <span>📝</span>
+                <span>Summary</span>
+              </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-gray-700 whitespace-pre-wrap">{result.summary}</p>
+              <MarkdownRenderer content={result.summary} />
             </CardContent>
           </Card>
 
           <Card className="glass">
             <CardHeader>
-              <CardTitle>Entities</CardTitle>
+              <CardTitle className="flex items-center gap-2">
+                <span>🏷️</span>
+                <span>Key Entities</span>
+              </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-gray-700 whitespace-pre-wrap">{result.entities}</p>
+              <MarkdownRenderer content={result.entities} />
             </CardContent>
           </Card>
 
           <Card className="glass">
             <CardHeader>
-              <CardTitle>Sentiment</CardTitle>
+              <CardTitle className="flex items-center gap-2">
+                <span>😊</span>
+                <span>Sentiment Analysis</span>
+              </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-gray-700 whitespace-pre-wrap">{result.sentiment}</p>
+              <MarkdownRenderer content={result.sentiment} />
             </CardContent>
           </Card>
 

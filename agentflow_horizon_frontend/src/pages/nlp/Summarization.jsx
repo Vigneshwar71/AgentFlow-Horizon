@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from 'sonner';
+import MarkdownRenderer from '@/components/MarkdownRenderer';
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
@@ -70,10 +71,13 @@ const Summarization = () => {
       {result && result.success && (
         <Card className="glass fade-in" data-testid="summarize-results">
           <CardHeader>
-            <CardTitle>Summary</CardTitle>
+            <CardTitle className="flex items-center gap-2">
+              <span>📝</span>
+              <span>Summary</span>
+            </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-gray-700 whitespace-pre-wrap">{result.summary}</p>
+            <MarkdownRenderer content={result.summary} />
           </CardContent>
         </Card>
       )}

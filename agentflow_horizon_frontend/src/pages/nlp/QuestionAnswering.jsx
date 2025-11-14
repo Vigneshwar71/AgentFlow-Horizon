@@ -6,6 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from 'sonner';
+import MarkdownRenderer from '@/components/MarkdownRenderer';
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
@@ -88,10 +89,13 @@ const QuestionAnswering = () => {
       {result && result.success && (
         <Card className="glass fade-in" data-testid="qna-results">
           <CardHeader>
-            <CardTitle>Answer</CardTitle>
+            <CardTitle className="flex items-center gap-2">
+              <span>💡</span>
+              <span>Answer</span>
+            </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-gray-700 whitespace-pre-wrap">{result.answer}</p>
+            <MarkdownRenderer content={result.answer} />
           </CardContent>
         </Card>
       )}
