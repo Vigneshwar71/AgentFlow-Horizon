@@ -245,4 +245,4 @@ For issues and questions, please open an issue on GitHub.
 
 **Built with ❤️ using AI and modern web technologies**
 
-** Thank you **
+**Thank you**
